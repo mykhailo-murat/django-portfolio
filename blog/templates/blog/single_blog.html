@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section class="single-blog">
+    <h1 class="single-blog__title"> {{ blog.title }}</h1>
+    <p class="single-blog__number"> blog#{{ id }}</p>
+    <p class="single-blog__date"> {{blog.date|date:'M d Y'}}</p>
+    <div class="single-blog__content">
+        {{blog.content|safe}}
+    </div>
+
+</section>
+
+</body>
+</html>

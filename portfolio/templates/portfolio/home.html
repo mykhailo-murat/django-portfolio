@@ -1,0 +1,37 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1 class="page-title">Hello !</h1>
+<h2>this is my firms Django site</h2>
+<h3> and this is me... </h3>
+<img src="{% static 'portfolio/iammonkey.webp' %}" alt="" width="500px" height="300px">
+
+{% if projects %}
+<section class="projects">
+    <h2>Projects</h2>
+
+    <div class="projects__list">
+
+        {% for project in projects %}
+        <div class="project__list-itm">
+            <img src="{{ project.image.url }}" alt="" width="400" height="300">
+            <h3>{{ project.title }}</h3>
+            <p> {{ project.description }} </p>
+            <a href="{{ project.url }}">LINK</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+<section class="blogs">
+    <h2>BLOGS</h2>
+
+    <a href="{% url 'blog:blog' %}"> ALL BLOGS -></a>
+</section>
+
+
+{% endif %}
+
+{% endblock %}

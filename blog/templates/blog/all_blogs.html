@@ -1,0 +1,17 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<h1 class="page-title">Martez has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h1>
+
+
+<section class="blogs">
+    {% for blog in blogs %}
+    <div class="blogs__blog-prev">
+        <a href="{% url 'blog:single_blog' blog.id %}"><h2> {{ blog.title }} </h2></a>
+        <p> {{ blog.date|date:'M d Y' }} </p>
+        <p> {{ blog.content|safe|truncatechars:100}}</p>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}
